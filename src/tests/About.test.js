@@ -15,7 +15,7 @@ describe('Testa o componente <About.js />', () => {
     'Testa se a página contém um heading h2 com o texto About Pokédex.',
     () => {
       render(<About />);
-      const title = screen.getByRole('heading', { name: 'About Pokédex' }, { level: 2 });
+      const title = screen.getByRole('heading', { name: 'About Pokédex', level: 2 });
       expect(title).toBeInTheDocument();
     },
   );
