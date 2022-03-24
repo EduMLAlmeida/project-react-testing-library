@@ -4,6 +4,8 @@ import userEvent from '@testing-library/user-event';
 import App from '../App';
 import renderWithRouter from './renderWithRouter';
 
+const moreDetails = 'More details';
+
 describe('Testa o componente <Pokemon.js />', () => {
   it(
     'Testa se é renderizado um card com as informações de determinado pokémon.',
@@ -35,7 +37,7 @@ describe('Testa o componente <Pokemon.js />', () => {
     () => {
       // código utilizado para acessar a url no pathname dentro do location do history retirado do vídeo da aula 14.3 do course.
       const { history } = renderWithRouter(<App />);
-      const details = screen.getByText('More details');
+      const details = screen.getByText(moreDetails);
       expect(details).toBeInTheDocument();
       userEvent.click(details);
       const { location: { pathname } } = history;
@@ -47,7 +49,7 @@ describe('Testa o componente <Pokemon.js />', () => {
     + 'é feito o redirecionamento da aplicação para a página de detalhes de Pokémon.',
     () => {
       renderWithRouter(<App />);
-      const details = screen.getByText('More details');
+      const details = screen.getByText(moreDetails);
       expect(details).toBeInTheDocument();
       userEvent.click(details);
       const detailsTitle = screen.getByText('Pikachu Details');
@@ -58,7 +60,7 @@ describe('Testa o componente <Pokemon.js />', () => {
     'Testa se existe um ícone de estrela nos Pokémons favoritados.',
     () => {
       renderWithRouter(<App />);
-      const moreDetailsLink = screen.getByRole('link', { name: 'More details' });
+      const moreDetailsLink = screen.getByRole('link', { name: moreDetails });
       userEvent.click(moreDetailsLink);
       const favCheckbox = screen.getByRole('checkbox', { name: 'Pokémon favoritado?' });
       userEvent.click(favCheckbox);

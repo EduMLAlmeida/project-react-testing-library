@@ -4,6 +4,10 @@ import userEvent from '@testing-library/user-event';
 import App from '../App';
 import renderWithRouter from './renderWithRouter';
 
+const lengthOne = 1;
+const lengthTwo = 2;
+const lengthSeven = 7;
+
 describe('Testa o componente <Pokedex.js />', () => {
   it(
     'Testa se página contém um heading h2 com o texto Encountered pokémons.',
@@ -74,7 +78,7 @@ describe('Testa o componente <Pokedex.js />', () => {
     () => {
       renderWithRouter(<App />);
       const moreDetails = screen.getAllByText('More details');
-      expect(moreDetails).toHaveLength(1);
+      expect(moreDetails).toHaveLength(lengthOne);
     },
   );
   it(
@@ -83,7 +87,7 @@ describe('Testa o componente <Pokedex.js />', () => {
       renderWithRouter(<App />);
 
       const allFilterButtons = screen.getAllByTestId('pokemon-type-button');
-      expect(allFilterButtons).toHaveLength(7);
+      expect(allFilterButtons).toHaveLength(lengthSeven);
 
       const nextButton = screen.getByRole('button', { name: 'Próximo pokémon' });
       const allButton = screen.getByRole('button', { name: 'All' });
@@ -94,7 +98,7 @@ describe('Testa o componente <Pokedex.js />', () => {
       userEvent.click(electricButton);
       expect(allButton).toBeInTheDocument();
       const electric = screen.getAllByText('Electric');
-      expect(electric).toHaveLength(2);
+      expect(electric).toHaveLength(lengthTwo);
       const pikachu = screen.getByText('Pikachu');
       expect(pikachu).toBeInTheDocument();
 
@@ -103,7 +107,7 @@ describe('Testa o componente <Pokedex.js />', () => {
       userEvent.click(fireButton);
       expect(allButton).toBeInTheDocument();
       const fire = screen.getAllByText('Fire');
-      expect(fire).toHaveLength(2);
+      expect(fire).toHaveLength(lengthTwo);
       const charmander = screen.getByText('Charmander');
       expect(charmander).toBeInTheDocument();
       userEvent.click(nextButton);
@@ -118,7 +122,7 @@ describe('Testa o componente <Pokedex.js />', () => {
       userEvent.click(bugButton);
       expect(allButton).toBeInTheDocument();
       const bug = screen.getAllByText('Bug');
-      expect(bug).toHaveLength(2);
+      expect(bug).toHaveLength(lengthTwo);
       const caterpie = screen.getByText('Caterpie');
       expect(caterpie).toBeInTheDocument();
 
@@ -127,7 +131,7 @@ describe('Testa o componente <Pokedex.js />', () => {
       userEvent.click(poisonButton);
       expect(allButton).toBeInTheDocument();
       const poison = screen.getAllByText('Poison');
-      expect(poison).toHaveLength(2);
+      expect(poison).toHaveLength(lengthTwo);
       const ekans = screen.getByText('Ekans');
       expect(ekans).toBeInTheDocument();
 
@@ -136,7 +140,7 @@ describe('Testa o componente <Pokedex.js />', () => {
       userEvent.click(psychicButton);
       expect(allButton).toBeInTheDocument();
       const psychic = screen.getAllByText('Psychic');
-      expect(psychic).toHaveLength(2);
+      expect(psychic).toHaveLength(lengthTwo);
       const alakazam = screen.getByText('Alakazam');
       expect(alakazam).toBeInTheDocument();
       userEvent.click(nextButton);
@@ -151,7 +155,7 @@ describe('Testa o componente <Pokedex.js />', () => {
       userEvent.click(normalButton);
       expect(allButton).toBeInTheDocument();
       const normal = screen.getAllByText('Normal');
-      expect(normal).toHaveLength(2);
+      expect(normal).toHaveLength(lengthTwo);
       const snorlax = screen.getByText('Snorlax');
       expect(snorlax).toBeInTheDocument();
 
@@ -160,7 +164,7 @@ describe('Testa o componente <Pokedex.js />', () => {
       userEvent.click(dragonButton);
       expect(allButton).toBeInTheDocument();
       const dragon = screen.getAllByText('Dragon');
-      expect(dragon).toHaveLength(2);
+      expect(dragon).toHaveLength(lengthTwo);
       const dragonair = screen.getByText('Dragonair');
       expect(dragonair).toBeInTheDocument();
     },
