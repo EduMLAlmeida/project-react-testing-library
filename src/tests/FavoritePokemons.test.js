@@ -38,7 +38,6 @@ describe('Testa o componente <FavoritePokemons.js />', () => {
       expect(pikachu).toBeInTheDocument();
       const caterpie = screen.getByText('Caterpie');
       expect(caterpie).toBeInTheDocument();
-      // teste
     },
   );
 });
